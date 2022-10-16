@@ -9,20 +9,24 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common ArrowOS stuff.
+$(call inherit-product, vendor/arrow/config/common.mk)
+
+# Build Flags
+TARGET_BOOT_ANIMATION_RES := 720
+TARGET_INCLUDE_PIXEL_CHARGER := true
 
 # Inherit from Mi439 device
 $(call inherit-product, device/xiaomi/Mi439/device.mk)
 
 # Overlays
 PRODUCT_PACKAGES += \
-    xiaomi_pine_overlay_lineage \
-    xiaomi_olive_overlay_lineage
+    xiaomi_pine_overlay_arrow \
+    xiaomi_olive_overlay_arrow
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := Mi439
-PRODUCT_NAME := lineage_Mi439
+PRODUCT_NAME := arrow_Mi439
 BOARD_VENDOR := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := SDM439
